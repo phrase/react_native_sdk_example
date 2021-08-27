@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "17.0.2",
-    "react-native": "0.65.1"
+    "react-native": "0.65.1",
+    "i18next": "^20.3.3",
+    "i18next-resources-to-backend": "^1.0.0",
+    "react-i18next": "^11.11.3"
   },
   "devDependencies": {
     "@babel/core": "7.15.0",

@@ -1,0 +1,6 @@
+{
+  "textSimple1": "Simple text 1",
+  "textSimple2": "Simple text 2",
+  "textWithCount": "{{count}} text",
+  "textWithCount_plural": "{{count}} texts"
+}
