@@ -3,6 +3,14 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import React, { Suspense } from 'react';
 import {useTranslation} from 'react-i18next';
 
+const App: () => Node = () => {
+  return (
+      <Suspense fallback={<Text>Loading... </Text>}>
+        <MyComponent/>
+      </Suspense>
+  );
+};
+
 function MyComponent() {
   const { t } = useTranslation();
 
@@ -13,13 +21,5 @@ function MyComponent() {
     <Text>{t('textWithCount', {count:5})}</Text>
   </SafeAreaView>
 }
-
-const App: () => Node = () => {
-  return (
-      <Suspense fallback={<Text>Loading... </Text>}>
-        <MyComponent/>
-      </Suspense>
-  );
-};
 
 export default App;

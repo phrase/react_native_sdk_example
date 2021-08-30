@@ -1,0 +1,8 @@
+{
+  "textSimple1": "Простой текст 1",
+  "textSimple2": "Простой текст 2",
+  "textWithCount_1": "{{count}} текста",
+  "textWithCount_2": "{{count}} текстов",
+  "textWithCount_3": "{{count}} текстов",
+  "textWithCount_0": "{{count}} текст"
+}
