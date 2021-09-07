@@ -32,15 +32,14 @@ const backendPhrase = resourcesToBackend((language, namespace, callback) => {
         });
 });
 
+const backendFallback = resourcesToBackend(localResources)
+
 i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({
     backend: {
-        backends: [
-            backendPhrase,
-            resourcesToBackend(localResources)
-        ]
+        backends: [backendPhrase, backendFallback]
     },
     debug: true,
     lng: "en",
