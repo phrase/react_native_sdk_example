@@ -1,10 +1,10 @@
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
 import ChainedBackend from "i18next-chained-backend";
 import resourcesToBackend from "i18next-resources-to-backend";
+import { initReactI18next } from "react-i18next";
+import Phrase from "react-native-phrase-sdk";
 import translationEN from "./locales/en/translation.json";
 import translationRU from "./locales/ru/translation.json";
-import Phrase from "react-native-phrase-sdk";
 
 const localResources = {
   en: {
@@ -23,13 +23,13 @@ let phrase = new Phrase(
 );
 
 const backendPhrase = resourcesToBackend((language, namespace, callback) => {
-    phrase.requestTranslation(language)
-        .then((remoteResources) => {
-            callback(null, remoteResources);
-        })
-        .catch((error) => {
-            callback(error, null);
-        });
+  phrase.requestTranslation(language)
+    .then((remoteResources) => {
+      callback(null, remoteResources);
+    })
+    .catch((error) => {
+      callback(error, null);
+    });
 });
 
 const backendFallback = resourcesToBackend(localResources)
@@ -39,7 +39,7 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-        backends: [backendPhrase, backendFallback]
+      backends: [backendPhrase, backendFallback]
     },
     debug: true,
     lng: "en",
