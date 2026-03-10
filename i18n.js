@@ -1,10 +1,10 @@
-import i18n from "i18next";
-import ChainedBackend from "i18next-chained-backend";
-import resourcesToBackend from "i18next-resources-to-backend";
-import { initReactI18next } from "react-i18next";
-import Phrase from "react-native-phrase-sdk";
-import translationEN from "./locales/en/translation.json";
-import translationRU from "./locales/ru/translation.json";
+import i18n from 'i18next';
+import ChainedBackend from 'i18next-chained-backend';
+import resourcesToBackend from 'i18next-resources-to-backend';
+import { initReactI18next } from 'react-i18next';
+import Phrase from 'react-native-phrase-sdk';
+import translationEN from './locales/en/translation.json';
+import translationRU from './locales/ru/translation.json';
 
 const localResources = {
   en: {
@@ -16,14 +16,15 @@ const localResources = {
 };
 
 let phrase = new Phrase(
-    "YOUR_DISTRIBUTION_ID",
-    "YOUR_ENVIRONMENT_ID",
-    require('./package.json').version,
-    "i18next"
+  'YOUR_DISTRIBUTION_ID',
+  'YOUR_ENVIRONMENT_ID',
+  require('./package.json').version,
+  'i18next',
 );
 
 const backendPhrase = resourcesToBackend((language, namespace, callback) => {
-  phrase.requestTranslation(language)
+  phrase
+    .requestTranslation(language)
     .then((remoteResources) => {
       callback(null, remoteResources);
     })
@@ -32,20 +33,19 @@ const backendPhrase = resourcesToBackend((language, namespace, callback) => {
     });
 });
 
-const backendFallback = resourcesToBackend(localResources)
+const backendFallback = resourcesToBackend(localResources);
 
 i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({
     backend: {
-      backends: [backendPhrase, backendFallback]
+      backends: [backendPhrase, backendFallback],
     },
     debug: true,
-    lng: "en",
-    fallbackLng: "en",
+    lng: 'en',
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
-    }
+    },
   });
-
