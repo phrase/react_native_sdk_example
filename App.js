@@ -1,5 +1,4 @@
-import { SafeAreaView, Text } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -15,7 +14,7 @@ function MyComponent() {
   const { t } = useTranslation();
 
   return (
-    <SafeAreaView style={Colors.lighter}>
+    <SafeAreaView style={styles.container}>
       <Text>{t('textSimple1')}</Text>
       <Text>{t('textSimple2')}</Text>
       <Text>{t('textWithCount', { count: 1 })}</Text>
@@ -23,5 +22,12 @@ function MyComponent() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#f3f3f3',
+    flex: 1,
+  },
+});
 
 export default App;
