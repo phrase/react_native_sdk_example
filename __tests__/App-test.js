@@ -7,8 +7,12 @@ import React from 'react';
 import App from '../App';
 
 // Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+const originalMessageChannel = global.MessageChannel;
+global.MessageChannel = undefined;
+const renderer = require('react-test-renderer');
+global.MessageChannel = originalMessageChannel;
 
 it('renders correctly', () => {
-  renderer.create(<App />);
+  const tree = renderer.create(<App />);
+  tree.unmount();
 });
