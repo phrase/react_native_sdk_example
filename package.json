@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "i18next": "^20.3.3",
+    "i18next": "^26.3.4",
     "i18next-chained-backend": "^3.0.2",
     "i18next-resources-to-backend": "^1.0.0",
     "react": "17.0.2",
